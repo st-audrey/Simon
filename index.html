@@ -3,15 +3,36 @@
 <head>
     <meta charset="utf-8" />
     <title>Simon</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="scss/main.css" />
 </head>
 <body>
-    <div id="board" class="board">
-        <img id="touche0" class="touche-img" src="images/ghost0.png" />
-        <img id="touche1" class="touche-img" src="images/ghost1.png" />
-        <img id="touche2" class="touche-img" src="images/ghost2.png" />
-        <img id="touche3" class="touche-img" src="images/ghost3.png" />
-        <img id="touche4" class="touche-img" src="images/ghost4.png" />
+    <div class="board">
+        <div class="container" style="--m: 8; --tan: 0.41">
+            <a style="--i: 1">
+            <img id="touche1" class="touche-img" src="images/ghost1.png" alt="alt text"/>
+            </a>
+            <a style="--i: 2">
+                <img id="touche2" class="touche-img" src="images/ghost1.png" alt="alt text"/>
+            </a>
+            <a style="--i: 3">
+                <img id="touche3" class="touche-img" src="images/ghost1.png" alt="alt text"/>
+            </a>
+            <a style="--i: 4">
+                <img id="touche4" class="touche-img" src="images/ghost1.png" alt="alt text"/>
+            </a>
+            <a style="--i: 5">
+                <img id="touch51" class="touche-img" src="images/ghost1.png" alt="alt text"/>
+            </a>
+            <a style="--i: 6">
+                <img id="touche6" class="touche-img" src="images/ghost1.png" alt="alt text"/>
+            </a>
+            <a style="--i: 7">
+                <img id="touche7" class="touche-img" src="images/ghost1.png" alt="alt text"/>
+            </a>
+            <a style="--i: 8">
+                <img id="touche8" class="touche-img" src="images/ghost1.png" alt="alt text"/>
+            </a>
+        </div>    
     </div>
 
     <script type="text/javascript" src="js/classes/Game.js"></script>
