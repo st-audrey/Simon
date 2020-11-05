@@ -1,10 +1,13 @@
 
 //variables
-@import '1_variables/colors';
+@import '1_variables/_colors';
 
 //tools
-@import '2_tools/normalize';
+@import '2_tools/_normalize';
 
-//tools
-@import '3_pages/index';
+//basics
+@import '3_basics/_animations';
+
+//pages
+@import '4_pages/_index';
 

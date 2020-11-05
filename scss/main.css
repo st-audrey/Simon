@@ -341,12 +341,30 @@ template {
   display: none;
 }
 
-body {
-  background: #efe4f0;
+@-webkit-keyframes flip_animation {
+  from {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
 }
 
-.board {
-  margin-top: 80px;
+@keyframes flip_animation {
+  from {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+body {
+  background: #efe4f0;
 }
 
 .container {
@@ -376,10 +394,6 @@ body {
           transform: rotate(var(--az)) translate(var(--r)) rotate(calc(-1*var(--az)));
 }
 
-img {
-  max-width: 100%;
-}
-
 .touche-img {
   width: 100px;
   height: 100px;
@@ -396,12 +410,28 @@ img {
   transition: .5s;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
+  -webkit-animation-name: flip_animation;
+          animation-name: flip_animation;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
 }
 
 .touche-img:hover {
+  cursor: pointer;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  -webkit-filter: grayscale(0%);
-          filter: grayscale(0%);
+}
+
+#canvas {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+}
+
+#test3 {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(to bottom left, transparent calc(50% - 1px), black calc(50% - 1px), black calc(50% + 1px), transparent calc(50% + 1px));
 }
 /*# sourceMappingURL=main.css.map */
