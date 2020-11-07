@@ -408,30 +408,34 @@ body {
   background: linear-gradient(0deg, #ddd, #fff);
   -webkit-transition: .5s;
   transition: .5s;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
   -webkit-animation-name: flip_animation;
           animation-name: flip_animation;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 .touche-img:hover {
+  -webkit-box-shadow: 0px 0px 40px -5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 40px -5px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+}
+
+.touche-img:active {
+  -webkit-box-shadow: 0px 0px 40px -5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 40px -5px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
 }
 
 #canvas {
   height: 100%;
   position: fixed;
   width: 100%;
-}
-
-#test3 {
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  background: linear-gradient(to bottom left, transparent calc(50% - 1px), black calc(50% - 1px), black calc(50% + 1px), transparent calc(50% + 1px));
 }
 /*# sourceMappingURL=main.css.map */

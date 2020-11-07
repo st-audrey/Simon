@@ -11,10 +11,13 @@ class Touche extends HTMLElement {
         this.onclick = function () {
            // if (this.game.clickable) {
                 // var allTouches = document.querySelectorAll(".touche");
-                // for (let i = 0; i < allTouches.length; i++) {
-                //     allTouches[i].classList.remove("click-anime");
+                //     for (let i = 0; i < allTouches.length; i++) {
+                //     allTouches[i].classList.remove("animate");
                 // }      
                 //this.isPlayed();
+                //this.classList.add('animate');
+                
+
                 this.game.effectTab.push(this);
                 console.log(this.game.effectTab);
                 this.game.playGame();
@@ -24,11 +27,12 @@ class Touche extends HTMLElement {
     }
 
     createTouche(i) {
-        var touche = document.createElement("IMG");
+        var touche = document.createElement("IMG");   
         touche.classList.add('touche-img');
         touche.setAttribute('id', 'touche'+i.toString());
-        touche.setAttribute("src", "images/" + i.toString() + ".png");        
-        this.setAttribute("style", "--i:" + i.toString());
+        touche.setAttribute("src", "images/note" + i.toString() + ".png");        
+        this.setAttribute("style", "--i:" + i.toString()+";");
+        this.setAttribute("id", i.toString());
         this.appendChild(touche);  
     }
 }

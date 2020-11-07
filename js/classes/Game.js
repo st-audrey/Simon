@@ -3,12 +3,10 @@ class Game {
     constructor() {
         this.effectTab =[];
         this.initBoard();
-        this.clickable = false;
-        
+        this.clickable = false;       
     }
 
     lineEffect(tab){
-
         //developer.mozilla.org/fr/docs/Web/API/Element/getBoundingClientRect
         function getOffset(touche) {
             const rect = touche.getBoundingClientRect();
@@ -22,8 +20,6 @@ class Game {
             };
         }
 
-        //récup coordonnées du centre du premier el du tableau
-        //récup coordonnées du centre du deuxième el du tableau
         var touche0 = tab[0];
         var touche1 = tab[1];
 
@@ -32,11 +28,35 @@ class Game {
         var yCenterTouche1 = (getOffset(touche1).top + (getOffset(touche1).height/2));
         var xCenterTouche1 = (getOffset(touche1).left + (getOffset(touche1).width/2));
 
-        console.log(yCenterTouche0);
-        console.log(xCenterTouche0);
-        console.log(yCenterTouche1);
-        console.log(xCenterTouche1);
-        
+        var color;
+
+        function getColor(id){
+            if(id == 0){
+                color = "yellow";
+            }else  if(id == 1){
+                color = "orange";
+            }else  if(id == 2){
+                color = "red";
+            }else  if(id == 3){
+                color = "pink";
+            }else  if(id == 4){
+                color = "#c441b3";
+            }else  if(id == 5){
+                color = "blue";
+            }else  if(id == 6){
+                color = "#41c4b7";
+            }else  if(id == 7){
+                color = "green";
+            }else{
+                color = "black";
+            }
+            return color;
+        }
+       
+        var color0 = touche0.id;
+        var color1 = touche1.id;
+        var color0 = getColor(color0);
+        var color1 = getColor(color1);
 
         var c = document.getElementById("canvas");
         var ctx = c.getContext("2d");
@@ -44,15 +64,15 @@ class Game {
         ctx.canvas.height = window.innerHeight;
 
         var lineargradient = ctx.createLinearGradient(xCenterTouche0, yCenterTouche0, xCenterTouche1, yCenterTouche1);
-        lineargradient.addColorStop(0, 'red');
-        lineargradient.addColorStop(1, 'blue');  
+        lineargradient.addColorStop(0, color0);
+        lineargradient.addColorStop(1, color1);  
         ctx.strokeStyle = lineargradient; 
+        ctx.lineWidth = 4;
 
         ctx.beginPath();
         ctx.moveTo(xCenterTouche0, yCenterTouche0);
         ctx.lineTo(xCenterTouche1, yCenterTouche1);
         ctx.stroke();
-
     }
 
     playGame(){
@@ -70,9 +90,9 @@ class Game {
             let touche = new Touche(i,this);           
             container.appendChild(touche);
         }
-        
-    }
-
-
-   
+        var touches = document.getElementsByTagName("touche-simon");
+        for (let i = 0; i < touches.length; i++) {
+            touches[i].classList.add("touche");
+        }       
+    }  
 }

@@ -1,3 +1,5 @@
+
+
 body{
     background: $bgcolor;
 }
@@ -40,16 +42,20 @@ box-sizing: border-box;
 box-shadow: 0 10px 15px $shadow;
 background: linear-gradient(0deg,#ddd,#fff);
 transition: .5s;
-filter: $grey100;
 animation-name: flip_animation;
 animation-duration: 2s;
+filter: $grey100;
 
     &:hover {
-    cursor: pointer;
-    box-shadow: 0 2px 5px $shadow;
-    // filter: $grey0;
-    // animation-name: flip_animation;
-    // animation-duration: 1s;
+        box-shadow:0px 0px 40px -5px $shadow;
+        cursor: pointer;
+        filter: $grey0;
+    }
+
+    &:active{
+        box-shadow:0px 0px 40px -5px $shadow;  
+        transform: scale(0.9);
+        transition-timing-function: ease;    
     }
 }
 
@@ -59,15 +65,15 @@ animation-duration: 2s;
     width: 100%;
 }
 
-#test3{
-    position: absolute; 
-    width:280px;
-    height:280px;
-    background:linear-gradient(
-        to bottom left, 
-        transparent  calc(50% - 1px), 
-        black        calc(50% - 1px), 
-        black        calc(50% + 1px) , 
-        transparent  calc(50% + 1px) 
-      );  
-}
+// #test3{
+//     position: absolute; 
+//     width:280px;
+//     height:280px;
+//     background:linear-gradient(
+//         to bottom left, 
+//         transparent  calc(50% - 1px), 
+//         black        calc(50% - 1px), 
+//         black        calc(50% + 1px) , 
+//         transparent  calc(50% + 1px) 
+//       );  
+// }
