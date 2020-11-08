@@ -16,9 +16,7 @@ body{
     position: relative;
     width: var(--s); height: var(--s);  
     margin:0 auto;
-}
-  
-.container{
+
     touche-simon {
         position: absolute;
         top: 50%; left: 50%;
@@ -30,7 +28,8 @@ body{
             translate(var(--r))
             rotate(calc(-1*var(--az)))
     }  
-} 
+}
+
 
 .touche-img {
 width: 100px;
@@ -71,16 +70,3 @@ filter: $grey100;
     position: fixed;
     width: 100%;
 }
-
-// #test3{
-//     position: absolute; 
-//     width:280px;
-//     height:280px;
-//     background:linear-gradient(
-//         to bottom left, 
-//         transparent  calc(50% - 1px), 
-//         black        calc(50% - 1px), 
-//         black        calc(50% + 1px) , 
-//         transparent  calc(50% + 1px) 
-//       );  
-// }
