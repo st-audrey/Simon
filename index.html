@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width" />
     <title>Simon</title>
     <link rel="stylesheet" type="text/css" href="scss/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <div id="modal" class="modal">
         <div class="modal-content">
-            <p>Some text in the Modal..</p>           
+            <h1>Touch-Me</h1>
+            <img id="modal-img" src="images/touchme.png"/>
+            <p><i>"Nice gameplay. Terrible execution. Visually boring. Miserable, rasping sounds."<br> Ralph Baer - Marvin Glass and Associates</i></p>
+            <p><strong>Touch Me</strong> is an arcade game first released by Atari Inc. in 1974.</p>
+            <p>In 1977, Ralph Baer saw potential in the concept behind the Touch Me game. He copied Atari's game, adding colored buttons and musical sound effects, and created the Simon handheld game, which became a major success. <a href="https://en.wikipedia.org/wiki/Touch_Me_(arcade_game)">Wikipedia : Touch Me (arcade game)</a></p>
+
+            <h1>"A mind boggler !"</h1>  
+            <p><i>"You can't beat it... <strong>Touch Me</strong> is the first computer game that challenge the mind as well as eye to hand coordination skills. Play time is limited only by players' ability to remember - and repeat correctly - the ever changing sound patterns." </i><a href="http://www.atarimuseum.com/videogames/arcade/fullsize/touchme.html">atarimuseum.com</a></p>
+            <p><strong>Give it a try !</strong></p>
+                 
             <button id="modal-btn">New Game</button>
+            <img id="modal-gif" src="images/invader.gif"/>
         </div>
     </div> 
     <canvas id="canvas"></canvas>
@@ -22,6 +33,6 @@
     <script type="text/javascript" src="js/classes/Game.js"></script>
     <script type="text/javascript" src="js/classes/Touche.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    
+
 </body>
 </html>

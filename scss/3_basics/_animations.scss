@@ -3,3 +3,10 @@
     to {transform: rotateY(360deg);}
   }
 
+  @keyframes invade {
+    0%   {left:53%; top:70%;}
+    25%  {left:53%; top:60%;}
+    50%  {left:40%; top:60%;}
+    75%  {left:40%; top:78%;}
+    100% {left:100%; top:78%;}
+  }
