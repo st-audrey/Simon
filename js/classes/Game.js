@@ -1,9 +1,24 @@
 class Game {
 
     constructor() {
+        this.tabToRandomise =[];
         this.effectTab =[];
+        this.melody = [];       
+        this.userMelody = [];
         this.initBoard();
-        this.clickable = false;       
+        this.clickable = false; 
+
+    }
+
+    randomise(tab) {
+        var i, j, tmp;
+        for (i = tab.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            tmp = tab[i];
+            tab[i] = tab[j];
+            tab[j] = tmp;
+        }
+        return tab;
     }
 
     lineEffect(tab){
@@ -75,23 +90,95 @@ class Game {
         ctx.stroke();
     }
 
-    playGame(){
+    playGameEffect(){
         let effectTab = this.effectTab;
         if(effectTab.length >= 2){          
             this.lineEffect(this.effectTab);
             this.effectTab.shift();          
+        }       
+    }
+
+    playGameMelody() {
+        function playSingleNote(touche) {
+            return new Promise(function (resolve, reject) {
+                touche.isPlayed(touche.firstChild);
+                setTimeout(function () {                   
+                    resolve();
+                }, 1000);
+            });
         }
+
+        function playMelody(melody, game) {
+            return new Promise(function (resolve, reject) {
+                var i = 0;
+                function playNoteByNote(j) {
+                    var note = melody[j];
+                    if (!note) {
+                        return resolve(game);
+                    }
+                    setTimeout(function () {    
+                        playSingleNote(note).then(function () {
+                            j++;
+                            playNoteByNote(j);
+                        });
+                    }, 1000);
+                }
+                playNoteByNote(i);
+            });
+        }
+
+        playMelody(this.melody, this).then(function (game) {
+            game.clickable = true;
+        });
+    }
+
+    compareMelodies(userMelodyToCompare) {
+        var melodyLength = this.melody.length;
+        var userMelodyLength = userMelodyToCompare.length;
+
+        console.log(this.melody);
+        console.log(userMelodyToCompare);
+
+        for (let i = 0; i < userMelodyLength; i++) {
+            var noteUser = userMelodyToCompare[i];
+            var noteGame = this.melody[i];           
+
+            if (noteUser === noteGame) {
+                if ((userMelodyLength == melodyLength) && (i == melodyLength - 1)) {
+                    //joueur gagne -> ajoute une t�te � la m�lodie
+                    this.addNewTouche();    
+                    console.log("ok"); 
+                    //TODO = ajouter 1win au score
+                }
+            } else {
+                //joueur perd
+                console.log('perdu');
+                break;
+                //TODO = r�cup�rer le score du joueur =>localStorage
+            }
+        }
+    }
+
+    addNewTouche() {
+        this.userMelody = [];
+        this.clickable = false;
+        this.randomise(this.tabToRandomise);
+        this.melody.push(this.tabToRandomise[0]);
+        this.playGameMelody();
     }
 
     initBoard() {
         let container = document.getElementById('container');
         for (let i = 0; i < 8; i++) {
-            let touche = new Touche(i,this);           
+            let touche = new Touche(i,this); 
+            touche.initListeners(); 
+            this.tabToRandomise.push(touche);       
             container.appendChild(touche);
         }
         var touches = document.getElementsByTagName("touche-simon");
         for (let i = 0; i < touches.length; i++) {
-            touches[i].classList.add("touche");
-        }       
+            touches[i].classList.add("touche");                        
+        } 
+        this.addNewTouche();      
     }  
 }

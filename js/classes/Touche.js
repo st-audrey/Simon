@@ -3,27 +3,29 @@ class Touche extends HTMLElement {
     constructor(i, game) {
         super();     
         this.game = game;
-        this.createTouche(i);
-        this.initListeners();         
+        this.createTouche(i);             
     }
 
     initListeners() {
         this.onclick = function () {
-        //    if (this.game.clickable) {
+           if (this.game.clickable) {
                 var allTouches = document.querySelectorAll(".touche-img");
                     for (let i = 0; i < allTouches.length; i++) {
                     allTouches[i].classList.remove("touche-active");
-                    }      
+                    }  
 
                 this.isPlayed(this.firstChild);
+
+                this.game.userMelody.push(this);              
                 this.game.effectTab.push(this);
-                this.game.playGame();
-                //this.game.compareMelodies(this.game.userMelody); 
-           //}
+                this.game.playGameEffect();
+                this.game.compareMelodies(this.game.userMelody); 
+           }
         }
     }
 
     createTouche(i) {
+
         var touche = document.createElement("IMG");   
         touche.classList.add('touche-img');
         touche.setAttribute('id', 'touche'+i.toString());
@@ -34,10 +36,9 @@ class Touche extends HTMLElement {
     }
 
     isPlayed(touche) {
-        touche.classList.add('touche-active');
 
-        this.playSound(touche);
-    
+        touche.classList.add('touche-active');
+        this.playSound(touche);   
         var allTouches= document.querySelectorAll(".touche-img");
         setTimeout(function () {
             for (let i = 0; i < allTouches.length; i++) {

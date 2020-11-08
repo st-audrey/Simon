@@ -2,11 +2,11 @@
 var modal = document.getElementById("modal");
 var modalBtn = document.getElementById("modal-btn");
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-} 
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// } 
 
 modalBtn.onclick = function(){   
     var invader = document.getElementById("modal-gif");
