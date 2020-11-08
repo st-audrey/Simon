@@ -77,8 +77,7 @@ class Game {
 
     playGame(){
         let effectTab = this.effectTab;
-        if(effectTab.length >= 2){  
-            var touche = this.effectTab[0];          
+        if(effectTab.length >= 2){          
             this.lineEffect(this.effectTab);
             this.effectTab.shift();          
         }
