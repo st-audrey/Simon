@@ -1,12 +1,6 @@
-
-
 body{
     background: $bgcolor;
 }
-
-// .board{
-//     margin-top:40px;
-// }
 
 .container {
     --d: 6.5em; /* image size */
@@ -29,7 +23,6 @@ body{
             rotate(calc(-1*var(--az)))
     }  
 }
-
 
 .touche-img {
 width: 100px;
@@ -73,34 +66,3 @@ p{
     font-family: 'Roboto', sans-serif;
 }
 
-#modal-btn{
-    font-family: 'Press Start 2P', cursive;
-    display:block;
-    margin:40px auto;
-    padding:30px;
-    border-radius:3px;
-    background-color: #d6d6d6;
-
-    &:hover{
-        cursor: pointer;
-        background-color: #f0f0f0;
-        transition: 0.3s ease;
-    }
-}
-
-#modal-img{
-    width: 10%;
-    position:fixed;
-    border-radius:5px;
-    top:2%;
-    left:75%;
-}
-
-#modal-gif{
-    z-index:-1;
-    width: 3%;
-    position:fixed;
-    top:70%;
-    left:53%;
-    animation-duration: 4s;
-}

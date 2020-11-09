@@ -1,5 +1,5 @@
-.modal {
-    //display: block;
+.gameover-modal {
+    display:none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -10,16 +10,24 @@
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
 
-    .modal-content {
+    .gameover-content {
         border-radius: 5px;
         background-color: #fefefe;
         margin: 5% auto; 
         padding: 20px;
         border: 1px solid #888;
-        width: 80%; 
+        width: 60%; 
     }
 
-    #modal-btn{
+    #gameover-input{
+        border-radius: 3px;
+        display: block;
+        margin:0 auto;
+        padding:20px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    #gameover-btn{
         font-family: 'Press Start 2P', cursive;
         display:block;
         margin:40px auto;
@@ -32,23 +40,6 @@
             background-color: #f0f0f0;
             transition: 0.3s ease;
         }
-    }
-    
-    #modal-img{
-        width: 10%;
-        position:fixed;
-        border-radius:5px;
-        top:2%;
-        left:75%;
-    }
-    
-    #modal-gif{
-        z-index:-1;
-        width: 3%;
-        position:fixed;
-        top:70%;
-        left:53%;
-        animation-duration: 4s;
     }
 }
 

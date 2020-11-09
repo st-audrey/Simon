@@ -22,7 +22,6 @@ class Game {
     }
 
     lineEffect(tab){
-        //developer.mozilla.org/fr/docs/Web/API/Element/getBoundingClientRect
         function getOffset(touche) {
             const rect = touche.getBoundingClientRect();
             return {
@@ -136,25 +135,27 @@ class Game {
         var melodyLength = this.melody.length;
         var userMelodyLength = userMelodyToCompare.length;
 
-        console.log(this.melody);
-        console.log(userMelodyToCompare);
-
         for (let i = 0; i < userMelodyLength; i++) {
             var noteUser = userMelodyToCompare[i];
             var noteGame = this.melody[i];           
 
             if (noteUser === noteGame) {
                 if ((userMelodyLength == melodyLength) && (i == melodyLength - 1)) {
-                    //joueur gagne -> ajoute une t�te � la m�lodie
-                    this.addNewTouche();    
-                    console.log("ok"); 
+                    //joueur gagne -> ajoute une touche a la melodie                                   
+                    this.addNewTouche();                                    
                     //TODO = ajouter 1win au score
                 }
             } else {
-                //joueur perd
-                console.log('perdu');
+                this.clickable = false;
+                function playAudio(audio) {
+                    new Audio(audio).play();
+                }    
+                var soundToPlay = "sounds/aww.mp3";
+                playAudio(soundToPlay); 
+                var gameOverModal=document.getElementById("gameover-modal");
+                gameOverModal.style.display = "block";     
                 break;
-                //TODO = r�cup�rer le score du joueur =>localStorage
+                //TODO = recuperer le score du joueur =>localStorage
             }
         }
     }
