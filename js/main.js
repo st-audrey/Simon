@@ -12,7 +12,7 @@ modalBtn.onclick = function(){
     var invader = document.getElementById("modal-gif");
     invader.setAttribute("style","z-index:1;animation-name:invade");
     setTimeout(function () {
-        new Game;
+        new Game(3,0);
         modal.style.display = "none";
     }, 3550)       
 }

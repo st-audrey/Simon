@@ -24,6 +24,24 @@ body{
     }  
 }
 
+#life-container{
+    position:absolute;
+    top:40%;
+    left:100px;
+}
+
+.life-img{
+    width: 3%;
+}
+
+#score-container{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 100px;
+    position:absolute;
+    top:35%;
+    right:160px;
+}
+
 .touche-img {
 width: 100px;
 height: 100px;

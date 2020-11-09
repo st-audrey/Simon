@@ -1,6 +1,8 @@
 class Game {
 
-    constructor() {
+    constructor(life, playerScore) {
+        this.playerScore = playerScore;
+        this.life=life;
         this.tabToRandomise =[];
         this.effectTab =[];
         this.melody = [];       
@@ -8,6 +10,21 @@ class Game {
         this.initBoard();
         this.clickable = false; 
 
+    }
+
+    initScore(playerScore){
+        var scoreContainer = document.getElementById("score-container");
+        scoreContainer.innerHTML = playerScore;       
+    }
+
+    initLife(life){
+        var lifeContainer = document.getElementById("life-container");
+        for (let i = 0; i <life; i++) {           
+            var lifeImg = document.createElement("IMG");
+            lifeImg.className = "life-img";
+            lifeImg.setAttribute("src", "images/life.png");
+            lifeContainer.appendChild(lifeImg);
+        }
     }
 
     randomise(tab) {
@@ -169,6 +186,8 @@ class Game {
     }
 
     initBoard() {
+        this.initLife(this.life);
+        this.initScore(this.playerScore);
         let container = document.getElementById('container');
         for (let i = 0; i < 8; i++) {
             let touche = new Touche(i,this); 
