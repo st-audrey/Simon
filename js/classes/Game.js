@@ -19,6 +19,7 @@ class Game {
 
     initLife(life){
         var lifeContainer = document.getElementById("life-container");
+        lifeContainer.innerHTML = "";
         for (let i = 0; i <life; i++) {           
             var lifeImg = document.createElement("IMG");
             lifeImg.className = "life-img";
@@ -157,12 +158,20 @@ class Game {
             var noteGame = this.melody[i];           
 
             if (noteUser === noteGame) {
-                if ((userMelodyLength == melodyLength) && (i == melodyLength - 1)) {
-                    //joueur gagne -> ajoute une touche a la melodie                                   
+                if ((userMelodyLength == melodyLength) && (i == melodyLength - 1)) {                                
                     this.addNewTouche();                                    
-                    //TODO = ajouter 1win au score
+                    this.playerScore += 5;
+                    this.initScore(this.playerScore);
                 }
-            } else {
+
+            } else if ((noteUser != noteGame) & (this.life>0)){
+                console.log(this.life);
+                this.life -= 1;
+                console.log(this.life);
+                this.initLife(this.life);
+                this.userMelody.pop();                
+
+            }else{
                 this.clickable = false;
                 function playAudio(audio) {
                     new Audio(audio).play();
