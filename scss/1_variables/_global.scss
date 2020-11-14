@@ -1,0 +1,50 @@
+//global
+    //greyscales
+    $grey0:grayscale(0%);
+    $grey50:grayscale(50%);
+    $grey100:grayscale(100%);
+
+    //fonts
+    $pixel: 'Press Start 2P', cursive;
+    $roboto: 'Roboto', sans-serif; 
+    $goldman:'Goldman', cursive;  
+    
+    //borders
+    $sWhite : 2px solid white;
+    $sBlack : 2px solid black;
+    $mBlack : 3px solid black;
+    $lBlack : 7px solid black;
+    $xlBlack : 10px solid black;
+
+//Welcome theme
+    //colors
+    $uniBack :rgb(214,174,123);
+    $gradientBack:linear-gradient(90deg, rgba(214,174,123,1) 0%, rgba(214,156,123,1) 100%);
+    $highlight:#d90635;
+
+//theme Touch Me
+    //colors
+    $gameBox:#C38722;
+    $scoreContainer : #530B08;
+    $score:rgb(253, 24, 24);
+    $btnStart:#b32e05;
+    $btnLast:#c76616;
+    $btnHigh:#d6831e;
+    $btnSkill:#d6ca1e;
+    $ledOff:darkred;
+    $ledOn:rgb(253, 24, 24);
+
+//Vapor theme
+    //colors
+    $bgcolor:#efe4f0;
+
+    //buttons colors
+    $shadow: rgba(0,0,0,0.3);
+    $color1:red;
+    $color2:blue;
+    $color3:yellow;
+    $color4:green;
+    $color5:purple;
+    $color6:orange;
+    $color7:lime;
+    $color8:pink;

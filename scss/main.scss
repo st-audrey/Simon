@@ -1,15 +1,17 @@
 
 //variables
-@import '1_variables/_colors';
+@import '1_variables/_global';
 
 //tools
 @import '2_tools/_normalize';
 
 //basics
 @import '3_basics/_animations';
+@import '3_basics/_buttons';
 @import '3_basics/_gameover';
 
 //pages
+@import '4_pages/_original';
 @import '4_pages/_vapor';
 @import '4_pages/_welcome';
 
