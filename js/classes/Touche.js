@@ -15,7 +15,6 @@ class Touche extends HTMLElement {
                     }  
 
                 this.isPlayed(this.firstChild);
-
                 this.game.userMelody.push(this);              
                 this.game.effectTab.push(this);
                 this.game.playGameEffect();

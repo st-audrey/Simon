@@ -409,61 +409,6 @@ template {
   }
 }
 
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: black;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal .modal-content {
-  border-radius: 5px;
-  background-color: #fefefe;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.modal #modal-btn {
-  font-family: 'Press Start 2P', cursive;
-  display: block;
-  margin: 40px auto;
-  padding: 30px;
-  border-radius: 3px;
-  background-color: #d6d6d6;
-}
-
-.modal #modal-btn:hover {
-  cursor: pointer;
-  background-color: #f0f0f0;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
-}
-
-.modal #modal-img {
-  width: 10%;
-  position: fixed;
-  border-radius: 5px;
-  top: 2%;
-  left: 75%;
-}
-
-.modal #modal-gif {
-  z-index: -1;
-  width: 3%;
-  position: fixed;
-  top: 70%;
-  left: 53%;
-  -webkit-animation-duration: 4s;
-          animation-duration: 4s;
-}
-
 .gameover-modal {
   display: none;
   position: fixed;
@@ -514,6 +459,33 @@ body {
   background: #efe4f0;
 }
 
+#start {
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50%;
+  background-color: #8989c9;
+  color: white;
+  font-size: 25px;
+}
+
+#start:hover {
+  background-color: #25256e;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.start-fade {
+  display: none;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#board {
+  margin-top: 30px;
+}
+
 .container {
   --d: 6.5em;
   /* image size */
@@ -548,7 +520,7 @@ body {
 }
 
 .life-img {
-  width: 3%;
+  width: 45px;
 }
 
 #score-container {
@@ -612,5 +584,134 @@ h1 {
 
 p {
   font-family: 'Roboto', sans-serif;
+}
+
+.container-fluid {
+  width: 100vw;
+  height: 100vh;
+  background: #d6ae7b;
+  background: -webkit-gradient(linear, left top, right top, from(#d6ae7b), to(#d69c7b));
+  background: linear-gradient(90deg, #d6ae7b 0%, #d69c7b 100%);
+}
+
+p {
+  color: white;
+}
+
+#nav-title {
+  font-family: "Press Start 2P", cursive;
+  font-size: 26px;
+}
+
+#about {
+  font-family: "Goldman", cursive;
+  text-decoration: none;
+  color: white;
+  font-size: 26px;
+  margin-right: 50px;
+}
+
+#about:hover {
+  color: #d90635;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+#ralph-baer-quote {
+  margin: 0 0 0 15%;
+  font-size: 30px;
+}
+
+#ralph-baer {
+  font-size: 15px;
+  margin-left: 77%;
+}
+
+#mind-boggler {
+  font-family: "Goldman", cursive;
+  font-size: 56px;
+  margin: 10% 0 0 15%;
+}
+
+.btn-row {
+  text-align: center;
+  margin: 5% 0 5% 18% !important;
+}
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  color: white;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Goldman", cursive;
+  text-transform: uppercase;
+}
+
+.btn-flip:hover:after {
+  opacity: 1;
+  -webkit-transform: translateY(0) rotateX(0);
+          transform: translateY(0) rotateX(0);
+}
+
+.btn-flip:hover:before {
+  opacity: 0;
+  -webkit-transform: translateY(50%) rotateX(90deg);
+          transform: translateY(50%) rotateX(90deg);
+}
+
+.btn-flip:after {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  color: white;
+  display: block;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: absolute;
+  background: #d90635;
+  content: attr(data-back);
+  -webkit-transform: translateY(-50%) rotateX(90deg);
+          transform: translateY(-50%) rotateX(90deg);
+}
+
+.btn-flip:before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  color: #adadaf;
+  display: block;
+  padding: 0 30px;
+  line-height: 40px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: relative;
+  background: #323237;
+  content: attr(data-front);
+  -webkit-transform: translateY(0) rotateX(0);
+          transform: translateY(0) rotateX(0);
+}
+
+#atari-notice {
+  font-size: 15px;
+  margin: 2% 15% 0 15%;
+}
+
+#link-atari {
+  font-family: "Goldman", cursive;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+
+#link-atari:hover {
+  color: #d90635;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 /*# sourceMappingURL=main.css.map */

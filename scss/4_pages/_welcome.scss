@@ -1,0 +1,120 @@
+.container-fluid{
+    width: 100vw;
+    height: 100vh;
+    background: $uniBack;
+    background: $gradientBack;
+}
+
+p{color:white;}
+
+#nav-title{
+    font-family: $fontStart;
+    font-size :26px;
+}
+
+#about{ 
+    font-family: $fontGoldman;
+    text-decoration: none;
+    color:white;
+    font-size :26px; 
+    margin-right: 50px;
+    &:hover{
+        color:$highlight;
+        transition: 0.5s ease;
+    }
+}
+
+#ralph-baer-quote{
+    margin: 0 0 0 15%;
+    font-size :30px;
+   
+}
+
+#ralph-baer{
+    font-size :15px;
+    margin-left:77%
+}
+
+#mind-boggler{
+    font-family: $fontGoldman;
+    font-size :56px;
+    margin: 10% 0 0 15%;
+}
+
+.btn-row{
+    text-align: center;
+    margin: 5% 0 5% 18%!important;
+}
+
+
+.btn-flip{
+opacity: 1;
+outline: 0;
+color: white;
+line-height: 40px;
+position: relative;
+text-align: center;
+letter-spacing: 1px;
+display: inline-block;
+text-decoration: none;
+font-family: $fontGoldman;
+text-transform: uppercase;
+
+    &:hover{
+        &:after{
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+        }
+
+        &:before{
+        opacity: 0;
+        transform: translateY(50%) rotateX(90deg);
+        }
+    }
+
+    &:after{
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: white;
+    display: block;
+    transition:0.5s;
+    position: absolute;
+    background: $highlight;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+    }
+
+    &:before{
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #adadaf;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: 0.5s;
+    position: relative;
+    background: #323237;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+    }
+}
+
+#atari-notice{
+    font-size :15px;
+    margin:2% 15% 0 15%;
+}
+
+#link-atari{
+    font-family: $fontGoldman;
+    text-decoration: none;
+    color:white;
+    
+    font-size :15px; 
+    &:hover{
+        color:$highlight;
+        transition: 0.5s ease;
+    }
+}

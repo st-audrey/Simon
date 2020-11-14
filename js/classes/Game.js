@@ -44,13 +44,19 @@ class Game {
             const rect = touche.getBoundingClientRect();
             return {
             left: Math.round(rect.left),
-            top: Math.round(rect.top),
+            top: Math.round(rect.top)-30,
             right:rect.right, 
             bottom: rect.bottom, 
             width: rect.width, 
             height:rect.height
             };
         }
+
+        // for(let i=0;i<tab.length;i++){
+        //     for(let j=1;j<tab.length;j++){
+        //         let touche1=tab[i];
+        //         let touche2=tab[j];
+        // }
 
         var touche0 = tab[0];
         var touche1 = tab[1];
@@ -158,26 +164,28 @@ class Game {
             var noteGame = this.melody[i];           
 
             if (noteUser === noteGame) {
-                if ((userMelodyLength == melodyLength) && (i == melodyLength - 1)) {                                
+                if ((userMelodyLength == melodyLength) && (i == melodyLength - 1)) {
+                    //todo rethink
+                    if(this.playerScore == 10||this.playerScore == 20||this.playerScore == 40) {   
+                        var soundToPlay = "sounds/anime.mp3";
+                        this.playAudio(soundToPlay); 
+                    }                             
                     this.addNewTouche();                                    
                     this.playerScore += 5;
                     this.initScore(this.playerScore);
                 }
 
-            } else if ((noteUser != noteGame) & (this.life>0)){
-                console.log(this.life);
-                this.life -= 1;
-                console.log(this.life);
+            } else if ((noteUser != noteGame) & (this.life>0)){    
+                var soundToPlay = "sounds/buzzer.mp3";
+                this.playAudio(soundToPlay); 
+                this.life -= 1;       
                 this.initLife(this.life);
                 this.userMelody.pop();                
 
             }else{
                 this.clickable = false;
-                function playAudio(audio) {
-                    new Audio(audio).play();
-                }    
                 var soundToPlay = "sounds/aww.mp3";
-                playAudio(soundToPlay); 
+                this.playAudio(soundToPlay); 
                 var gameOverModal=document.getElementById("gameover-modal");
                 gameOverModal.style.display = "block";     
                 break;
@@ -185,6 +193,10 @@ class Game {
             }
         }
     }
+
+    playAudio(audio) {
+        new Audio(audio).play();
+    }    
 
     addNewTouche() {
         this.userMelody = [];
