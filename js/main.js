@@ -1,14 +1,12 @@
-// var start = document.getElementById("start");
-// start.addEventListener("click", function () {
-//     start.classList.add("start-fade");
-//     new Game(3,0);
-// });
 
-var btnOnOff = document.getElementById("btn-on-off");
-btnStart = document.getElementById("btn-start");
-
-btnStart.onclick = function(){ 
+function startOriginal(){ 
+    var btnOnOff = document.getElementById("btn-on-off");
     if (btnOnOff.checked == true){
-        new Game(3,0);
+        new Game(1,3,0);
     }   
 } 
+
+function startVapor() {
+    start.classList.add("start-fade");
+    new Game(2,3,0);
+}

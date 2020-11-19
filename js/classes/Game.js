@@ -1,6 +1,7 @@
 class Game {
 
-    constructor(life, playerScore) {
+    constructor( version, life, playerScore) {
+        this.version = version;
         this.playerScore = playerScore;
         this.life=life;
         this.tabToRandomise =[];
@@ -13,19 +14,26 @@ class Game {
     }
 
     initScore(playerScore){
-        var scoreContainer = document.getElementById("score-container");
-        scoreContainer.innerHTML = playerScore;       
+        if(this.version == 1){
+            var scoreContainer = document.getElementById("score-container1");
+            scoreContainer.innerHTML = playerScore; 
+        }else{
+            var scoreContainer = document.getElementById("score-container");
+            scoreContainer.innerHTML = playerScore; 
+        }           
     }
 
     initLife(life){
-        var lifeContainer = document.getElementById("life-container");
-        lifeContainer.innerHTML = "";
-        for (let i = 0; i <life; i++) {           
-            var lifeImg = document.createElement("IMG");
-            lifeImg.className = "life-img";
-            lifeImg.setAttribute("src", "images/life.png");
-            lifeContainer.appendChild(lifeImg);
-        }
+        if(this.version == 2){
+            var lifeContainer = document.getElementById("life-container");
+            lifeContainer.innerHTML = "";
+            for (let i = 0; i <life; i++) {           
+                var lifeImg = document.createElement("IMG");
+                lifeImg.className = "life-img";
+                lifeImg.setAttribute("src", "images/life.png");
+                lifeContainer.appendChild(lifeImg);
+            }
+        }      
     }
 
     randomise(tab) {
@@ -51,12 +59,6 @@ class Game {
             height:rect.height
             };
         }
-
-        // for(let i=0;i<tab.length;i++){
-        //     for(let j=1;j<tab.length;j++){
-        //         let touche1=tab[i];
-        //         let touche2=tab[j];
-        // }
 
         var touche0 = tab[0];
         var touche1 = tab[1];
@@ -208,18 +210,32 @@ class Game {
 
     initBoard() {
         this.initLife(this.life);
-        this.initScore(this.playerScore);
-        let container = document.getElementById('container');
-        for (let i = 0; i < 8; i++) {
-            let touche = new Touche(i,this); 
-            touche.initListeners(); 
-            this.tabToRandomise.push(touche);       
-            container.appendChild(touche);
+        this.initScore(this.playerScore);      
+        var j;
+
+        if(this.version == 1){
+            j = 4;
+            let container = document.getElementById('touches-container');
+            for (let i = 0; i < j; i++) {
+                let touche = new Touche(i,this); 
+                touche.initListeners(); 
+                this.tabToRandomise.push(touche);       
+                container.appendChild(touche);
+            }
+        }else{
+            j = 8;
+            let container = document.getElementById('container');
+            for (let i = 0; i < j; i++) {
+                let touche = new Touche(i,this); 
+                touche.initListeners(); 
+                this.tabToRandomise.push(touche);       
+                container.appendChild(touche);
+            }
+            var touches = document.getElementsByTagName("touche-simon");
+            for (let i = 0; i < touches.length; i++) {
+                touches[i].classList.add("touche");                        
+            } 
         }
-        var touches = document.getElementsByTagName("touche-simon");
-        for (let i = 0; i < touches.length; i++) {
-            touches[i].classList.add("touche");                        
-        } 
         this.addNewTouche();      
     }  
 }

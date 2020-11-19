@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <button id="start">start</button>
+    <button id="start" onclick="startVapor()">start</button>
     <canvas id="canvas"></canvas>
     <div id="board" class="board">
         <div id="life-container"></div>
         <div id="score-container"></div>
-        <div id="container" class="container" style="--m: 8; --tan: 0.41">        
+        <div id="container" class="container touches-container" style="--m: 8; --tan: 0.41">        
         </div>    
     </div>
     <div id="gameover-modal" class="gameover-modal">
